@@ -63,7 +63,7 @@ def callback():
         content_type = msg['type']
 
     if content_type == 'text':
-		line_bot_api.reply_message(reply_to,ltext('尼好'+reply_to+'你剛剛說的是\n'+command))
+	    line_bot_api.reply_message(reply_to,ltext('尼好'+reply_to+'你剛剛說的是\n'+command))
         #if command == 'hello':
         #    line_bot_api.reply_message(reply_to,ltext('尼好')
         #else:
