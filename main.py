@@ -99,7 +99,7 @@ def callback():
         elif command == 'hello':
             line_bot_api.reply_message(reply_to,ltext('hi'))
         else:
-		    line_bot_api.reply_message(reply_to,ltext(str(body))
+            line_bot_api.reply_message(reply_to,ltext(str(body))
     return 'OK'
 
 	
