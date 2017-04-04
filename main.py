@@ -35,7 +35,6 @@ def get_moodle():
     alltable = soup.findAll('table')[0]
     usertitle = str(soup.find('h2'))
     usertitle = usertitle[4:usertitle.find('</')]
-    print(usertitle)
     for n in alltable.findAll('td',{'class':'level2 leveleven item b1b itemcenter column-grade'}):
         n = str(n)
         n = n[n.find('>')+1:n.find('</')]
