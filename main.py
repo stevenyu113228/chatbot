@@ -40,26 +40,6 @@ def telegram():
         if command == '/start':
             bot.sendMessage(chat_id,'今天有什麼事要靠北嗎？',reply_markup=hide_keyboard)
     return 'OK'
-"""
-@app.route("/line", methods=['POST'])
-def line():
-    signature = request.headers['X-Line-Signature']
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    try:
-        events = parser.parse(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-    #for event in events:
-    #    if not isinstance(event, MessageEvent):
-    #        continue
-    #    if not isinstance(event.message, TextMessage):
-    #        continue
-    msg = json.loads(str(event))
-
-    return 'OK'
-"""
 
 @app.route("/line", methods=['POST'])
 def callback():
@@ -84,9 +64,10 @@ def callback():
 
     if content_type == 'text':
         if command == 'hello':
-            line_bot_api.reply_message(reply_to,ltext('尼好r'))
-	return 'OK'
+            line_bot_api.reply_message(reply_to,ltext('尼好'))
+        else:
+            line_bot_api.reply_message(reply_to,ltext('hi'))
+    return 'OK'
 
-			
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=int(os.environ.get('PORT', 5000)))
