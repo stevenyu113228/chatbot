@@ -95,11 +95,12 @@ def callback():
         content_type = msg['type']
 
     if content_type == 'text':
-	    line_bot_api.reply_message(reply_to,ltext('尼好你剛剛說的是\n'+command+'\n'+str(body)+'\n'+get_moodle()))
-        #if command == 'hello':
-        #    line_bot_api.reply_message(reply_to,ltext('尼好')
-        #else:
-        #    line_bot_api.reply_message(reply_to,ltext('h\ni'))
+	    if command == 'ㄇㄨ斗':
+		    line_bot_api.reply_message(reply_to,ltext(get_moodle())
+        else if command == 'hello':
+            line_bot_api.reply_message(reply_to,ltext('hi'))
+        else:
+		    line_bot_api.reply_message(reply_to,ltext(str(body))
     return 'OK'
 
 	
