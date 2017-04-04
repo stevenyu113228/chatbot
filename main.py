@@ -40,7 +40,7 @@ def telegram():
         if command == '/start':
             bot.sendMessage(chat_id,'今天有什麼事要靠北嗎？',reply_markup=hide_keyboard)
     return 'OK'
-
+"""
 @app.route("/line", methods=['POST'])
 def line():
     signature = request.headers['X-Line-Signature']
@@ -59,6 +59,33 @@ def line():
     msg = json.loads(str(event))
 
     return 'OK'
+"""
 
+@app.route("/line", methods=['POST'])
+def callback():
+    def ltext(reply):
+        return TextSendMessage(text=reply)
+    signature = request.headers['X-Line-Signature']
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+
+    try:
+        events = parser.parse(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+    msg = json.loads(body)['events'][0]
+    try:
+        content_type = msg['message']['type']
+        reply_to = msg['replyToken']
+        say = msg['message']['text']
+        command = say.lower()
+    except:
+        content_type = msg['type']
+
+    if content_type == 'text':
+        if command == 'hello':
+            line_bot_api.reply_message(reply_to,ltext('尼好r'))
+
+			
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=int(os.environ.get('PORT', 5000)))
