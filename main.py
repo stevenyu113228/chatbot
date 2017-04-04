@@ -96,7 +96,7 @@ def callback():
     if content_type == 'text':
 	    if command == 'ㄇㄨ斗':
 		    line_bot_api.reply_message(reply_to,ltext(get_moodle())
-        else if command == 'hello':
+        elif command == 'hello':
             line_bot_api.reply_message(reply_to,ltext('hi'))
         else:
 		    line_bot_api.reply_message(reply_to,ltext(str(body))
