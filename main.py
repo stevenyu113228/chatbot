@@ -22,13 +22,13 @@ bot = telepot.Bot(os.environ.get('telegram_token', None))
 
 #123111
 def get_moodle():
-	moodleLoginURL = 'http://moodle.ntust.edu.tw/login/index.php'
-	moodleCalculusURL = 'http://moodle.ntust.edu.tw/grade/report/user/index.php?id=11795'
-	moodleLogoutURL = ''
-	res = requests.session()
-	payload = {'username':'b10507004','password':'Ji3g45j5j_MOODLE'}
-	score = []
-	title = []
+    moodleLoginURL = 'http://moodle.ntust.edu.tw/login/index.php'
+    moodleCalculusURL = 'http://moodle.ntust.edu.tw/grade/report/user/index.php?id=11795'
+    moodleLogoutURL = ''
+    res = requests.session()
+    payload = {'username':'b10507004','password':'Ji3g45j5j_MOODLE'}
+    score = []
+    title = []
     res.post(moodleLoginURL,data = payload)
     a = res.get(moodleCalculusURL)
     soup = BeautifulSoup(a.text,"html.parser")
@@ -45,9 +45,9 @@ def get_moodle():
         c = c[c.find('"/')+3:c.find('</a></th>')]
         title.append(c)
     scoreee = ""
-	for a in range(len(title)):
-		scoreee += (title[a] + " : "+ score[a] +'\n')
-	return scoreee
+    for a in range(len(title)):
+        scoreee += (title[a] + " : "+ score[a] +'\n')
+    return scoreee
 
 #123111
 
