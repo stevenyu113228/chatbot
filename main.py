@@ -85,6 +85,7 @@ def callback():
     if content_type == 'text':
         if command == 'hello':
             line_bot_api.reply_message(reply_to,ltext('尼好r'))
+	return 'OK'
 
 			
 if __name__ == "__main__":
