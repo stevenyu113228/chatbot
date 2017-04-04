@@ -66,7 +66,7 @@ def callback():
         if command == 'hello':
             line_bot_api.reply_message(reply_to,ltext('尼好'))
         else:
-            line_bot_api.reply_message(reply_to,ltext('hi'))
+            line_bot_api.reply_message(reply_to,ltext('h\ni'))
     return 'OK'
 
 if __name__ == "__main__":
