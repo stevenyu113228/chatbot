@@ -8,9 +8,9 @@ def get_pm25():
         jd = json.loads(res.text)
         for i in jd['feeds'] :
             if i['SiteName'] == '古亭' :
-                ret_data = 'SiteName : ' + str(i['SiteName'])+\
-                'PM2.5 : ' + str(i['PM2_5_AVG']) +\
-                'PM10 : ' + str(i['PM10_AVG']) +\
+                ret_data = '監測站 : ' + str(i['SiteName'])+'\n'+\
+                'PM2.5 : ' + str(i['PM2_5_AVG'])+'\n' +\
+                'PM10 : ' + str(i['PM10_AVG']) +'\n'+\
                 i['Status']
     except:
         ret_data = 'Server EOFError'
