@@ -1,7 +1,7 @@
 ########## 學生餐廳Function S
 ## Argument:使用者傳入字串
 ## Return:String 餐廳名稱
-
+import random
 def ntust_restaurant(command):
     command = str(command)
     restaurant = [

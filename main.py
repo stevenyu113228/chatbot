@@ -103,8 +103,15 @@ def callback():
         elif '注音' in command:
             command = command[command.find("：")+1:]
             line_bot_api.reply_message(reply_to,ltext(bopomofo.chinese_bopomofo(command)))
+        elif '空氣品質' in command:
+            line_bot_api.reply_message(reply_to,ltext(pm25.get_pm25()))
+        elif '天氣' in command:
+            line_bot_api.reply_message(reply_to, ltext('臺科現在的天氣是:\n'+ weather.get_weather(25.0130366,121.5431341)))
+        elif 'bike' in command.lower():
+            line_bot_api.reply_message(reply_to, ltext(youbike.getubike()))   
         elif any(x in command for x in ['吃','餐']):
             line_bot_api.reply_message(reply_to,ltext(restaurant.ntust_restaurant(command)))
+
         else:
             #line_bot_api.reply_message(reply_to,ltext(str(body)))
             rp = '對ㄅ起...我笨笨\n'+\
