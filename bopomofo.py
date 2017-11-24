@@ -18,5 +18,4 @@ def chinese_bopomofo(word):
 
     except:
         ret_data = '對不起...\n機器人壞掉了\n暫時無法查詢QQ'
-    #print(ret_data)
     return ret_data
