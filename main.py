@@ -121,6 +121,6 @@ def callback():
 
 ########## Main Function Start
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=9487,debug=True,threaded=True)
+    app.run(host='0.0.0.0',debug=True,threaded=True)
 ########## Main Function Stop
 
